@@ -1,6 +1,6 @@
 {
   "name": "bless-network-bot",
-  "version": "1.0.0"
+  "version": "1.0.0",
   "description": "Automates network or node operations for Blockless Bless Network Bot.",
   "main": "index.js",
   "scripts": {
