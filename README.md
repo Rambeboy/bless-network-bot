@@ -96,14 +96,17 @@ This script automates network or node operations for Blockless Bless Network Bot
 	```
 
 5. Run the script:
-	```bash
-	npm start
-	```
-**NOTE: The total time is refreshed every 10minute connection, One account only can have 5 nodeid max and can't be deleted, I recomended to save your Nodeid(pubkey) and hardwareid of your account**
+   ```bash
+   npm start
+   ```
+ 
+ **NOTE: The total time is refreshed every 10minute connection, One account only can have 5 nodeid max and can't be deleted, I recomended to save your Nodeid(pubkey) and hardwareid of your account**
+
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
 
 ## Note
 This script only for testing purpose, using this script might violates ToS and may get your account permanently banned.
