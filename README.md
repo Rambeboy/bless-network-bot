@@ -98,7 +98,7 @@ This script automates network or node operations for Blockless Bless Network Bot
 	            { nodeId: 'nodeid(pubkey)6', hardwareId: 'hardwareid6', proxy: 'proxy6' }
 	        ]
 	    }
-       // If you only use 1 account, delete all sequences after that.
+       // If you only use a few columns, delete the columns afterwards so that errors don't occur in the bot
    ];
    ```
 
