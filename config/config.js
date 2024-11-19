@@ -19,5 +19,5 @@ module.exports = [
             { nodeId: 'INPUT YOUR NODEID HERE 10', hardwareId: 'INPUT YOUR HARDWAREID HERE 10', proxy: 'INPUT YOUR PROXY HERE 10' }
         ]
     }
-    // If you only use 1 account, delete all sequences after that.
+    // If you only use a few columns, delete the columns you don't fill in, so that errors don't occur in the bot
 ];
