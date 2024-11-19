@@ -4,19 +4,19 @@
 
 This script automates network or node operations for Blockless Bless Network Bot.
 
-## Features
+## FEATURES
 
 - **Automated node interaction**
 - **Multi account**
 - **Multi NodeID**
 - **Proxy support**
 
-## Prerequisites
+## PREREQUISITE
 
 - Git
 - [Node.js](https://nodejs.org/) (version 12 or higher)
 
-## Installation
+## INSTALLATION
 
 1. Clone the repository to your local machine:
    ```bash
@@ -38,8 +38,13 @@ This script automates network or node operations for Blockless Bless Network Bot
    nano config/config.js
    ```
 
+5. Run the script:
+   ```bash
+   npm start
+   ```
 
-## Usage
+
+## USAGE
 
 1. Register to blockless bless network account first, if you dont have you can register [Here](https://bless.network/dashboard)
 
@@ -95,21 +100,17 @@ This script automates network or node operations for Blockless Bless Network Bot
 	    }
 	    // Add more usertokens as needed
 	];
-	```
-
-5. Run the script:
-   ```bash
-   npm start
    ```
 
-## Note
+
+## NOTE
 
 - The total time is refreshed every 10minute connection, One account only can have 5 nodeid max and can't be deleted, I recomended to save your Nodeid(pubkey) and hardwareid of your account.
 
 - This script only for testing purpose, using this script might violates ToS and may get your account permanently banned.
 
 
-## License
+## LICENSE
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
