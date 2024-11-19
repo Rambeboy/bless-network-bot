@@ -52,7 +52,7 @@ This script automates network or node operations for Blockless Bless Network Bot
 
 - Go to application tab - look for Local Storage in storage list -> click `https://bless.network` and you will see your B7S_AUTH_TOKEN.
 
-- or you can go Console tab and paste this 
+- Or you can go Console tab and paste this 
 	```bash
 	localStorage.getItem('B7S_AUTH_TOKEN')
 	```
@@ -61,12 +61,13 @@ This script automates network or node operations for Blockless Bless Network Bot
 
 - Download the [extension](https://chromewebstore.google.com/detail/bless/pljbjcehnhcnofmkdbjolghdcjnmekia)
 
-- after you download the extension, open `chrome://extensions/?id=pljbjcehnhcnofmkdbjolghdcjnmekia`
+- After you download the extension, open `chrome://extensions/?id=pljbjcehnhcnofmkdbjolghdcjnmekia`
 
 - Enable `Developer mode` in top right, then press `service worker`. You will see new tab open.
 ![image](https://github.com/user-attachments/assets/63151405-cd49-4dff-9eec-a787a9aa3144)
 
 - Go to `network` tab, then open the `Bless extension` and login to your account.
+
 - After you login to your account, search name with your pubkey (example : `12D3xxxx`), open and copy the `pubkey` and `hardwareid`
 ![image](https://github.com/user-attachments/assets/70bcb0c6-9c47-4c81-9bf4-a55ab912fba6)
 
