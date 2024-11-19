@@ -28,15 +28,16 @@ This script automates network or node operations for Blockless Bless Network Bot
    cd bless-network-bot
    ```
 
-3. Configure the app:
+3. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Configure the app:
    ```bash
    nano config/config.js
    ```
 
-4. Install the necessary dependencies:
-   ```bash
-   npm install
-   ```
 
 ## Usage
 
