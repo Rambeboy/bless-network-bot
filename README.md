@@ -28,7 +28,7 @@ This script automates network or node operations for Blockless Bless Network Bot
    cd bless-network-bot
    ```
 
-3. Configure your config
+3. Configure the app:
    ```bash
    nano config/config.js
    ```
