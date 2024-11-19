@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app/index.js",
-    "start": "node app/src/gen.js"
+    "start": "node gen.js"
   },
   "keywords": [
     "blokless",
