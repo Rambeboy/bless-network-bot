@@ -1,1 +1,193 @@
-const _0x40d544=_0x3a3f;(function(_0x1a8cca,_0x44d85e){const _0x17bce7=_0x3a3f,_0x1b92e3=_0x1a8cca();while(!![]){try{const _0x4b9457=parseInt(_0x17bce7(0x10f))/0x1+-parseInt(_0x17bce7(0xd5))/0x2+parseInt(_0x17bce7(0x109))/0x3*(-parseInt(_0x17bce7(0xe2))/0x4)+-parseInt(_0x17bce7(0xfe))/0x5*(parseInt(_0x17bce7(0xc4))/0x6)+-parseInt(_0x17bce7(0x104))/0x7*(-parseInt(_0x17bce7(0xd9))/0x8)+parseInt(_0x17bce7(0xe0))/0x9*(-parseInt(_0x17bce7(0xfb))/0xa)+parseInt(_0x17bce7(0xf0))/0xb;if(_0x4b9457===_0x44d85e)break;else _0x1b92e3['push'](_0x1b92e3['shift']());}catch(_0x17f93e){_0x1b92e3['push'](_0x1b92e3['shift']());}}}(_0x530f,0x8aa39));const fs=require('fs')[_0x40d544(0xbf)],{HttpsProxyAgent}=require('https-proxy-agent'),readline=require(_0x40d544(0x10b)),config=require(_0x40d544(0xe7)),apiBaseUrl='https://gateway-run.bls.dev/api/v1',ipServiceUrl=_0x40d544(0xd4);let useProxy;const MAX_PING_ERRORS=0x3,pingInterval=0x1d4c0,restartDelay=0x3a980,processRestartDelay=0x7530;async function loadFetch(){const _0x3d088d=_0x40d544,_0x1902e5=await import(_0x3d088d(0x106))[_0x3d088d(0xfc)](_0x2697fc=>_0x2697fc['default']);return _0x1902e5;}async function promptUseProxy(){const _0xa88cfa=_0x40d544,_0x163924=readline[_0xa88cfa(0x107)]({'input':process[_0xa88cfa(0xf6)],'output':process['stdout']});return new Promise(_0x3f7683=>{const _0x2405d6=_0xa88cfa;_0x163924[_0x2405d6(0xe5)](_0x2405d6(0xd3),_0x3e423d=>{const _0x4d1a2b=_0x2405d6;_0x163924[_0x4d1a2b(0x105)](),_0x3f7683(_0x3e423d[_0x4d1a2b(0x100)]()==='y');});});}function _0x3a3f(_0x138a27,_0x541b91){const _0x530fd3=_0x530f();return _0x3a3f=function(_0x3a3f85,_0xc35694){_0x3a3f85=_0x3a3f85-0xbf;let _0x1546e2=_0x530fd3[_0x3a3f85];return _0x1546e2;},_0x3a3f(_0x138a27,_0x541b91);}async function fetchIpAddress(_0x34f836,_0x2ab0cb){const _0x19269e=_0x40d544,_0x357e83=await _0x34f836(ipServiceUrl,{'agent':_0x2ab0cb}),_0x1992f7=await _0x357e83[_0x19269e(0xc6)]();return console[_0x19269e(0xce)]('['+new Date()[_0x19269e(0xee)]()+_0x19269e(0xcd),_0x1992f7),_0x1992f7['ip'];}async function registerNode(_0x57691c,_0x49541d,_0x5c0720,_0x5a6905,_0x20b1eb){const _0x34ee2c=_0x40d544,_0x33ecfe=await loadFetch(),_0x44b729=apiBaseUrl+_0x34ee2c(0xc3)+_0x57691c;console[_0x34ee2c(0xce)]('['+new Date()['toISOString']()+_0x34ee2c(0xe6)+_0x5c0720+',\x20Hardware\x20ID:\x20'+_0x49541d);const _0x48d373=await _0x33ecfe(_0x44b729,{'method':'POST','headers':{'Content-Type':_0x34ee2c(0xd0),'Authorization':_0x34ee2c(0xc8)+_0x20b1eb},'body':JSON[_0x34ee2c(0xef)]({'ipAddress':_0x5c0720,'hardwareId':_0x49541d}),'agent':_0x5a6905});let _0x3a42e9;try{_0x3a42e9=await _0x48d373[_0x34ee2c(0xc6)]();}catch(_0x4e75bb){const _0x3a19a0=await _0x48d373['text']();console[_0x34ee2c(0xf8)]('['+new Date()['toISOString']()+']\x20Failed\x20to\x20parse\x20JSON.\x20Response\x20text:',_0x3a19a0);throw new Error(_0x34ee2c(0xeb)+_0x3a19a0);}return console[_0x34ee2c(0xce)]('['+new Date()[_0x34ee2c(0xee)]()+_0x34ee2c(0x101),_0x3a42e9),_0x3a42e9;}async function startSession(_0x42f632,_0xc32504,_0x28f99c){const _0x14d971=_0x40d544,_0x2d551e=await loadFetch(),_0x5c9c58=apiBaseUrl+_0x14d971(0xc3)+_0x42f632+_0x14d971(0xdc);console[_0x14d971(0xce)]('['+new Date()[_0x14d971(0xee)]()+_0x14d971(0xf9)+_0x42f632+',\x20it\x20might\x20take\x20a\x20while...');const _0x10e8db=await _0x2d551e(_0x5c9c58,{'method':'POST','headers':{'Authorization':'Bearer\x20'+_0x28f99c},'agent':_0xc32504});let _0xc1628e;try{_0xc1628e=await _0x10e8db['json']();}catch(_0xc0c78f){const _0x4407bc=await _0x10e8db['text']();console['error']('['+new Date()['toISOString']()+_0x14d971(0xcb),_0x4407bc);throw new Error(_0x14d971(0xeb)+_0x4407bc);}return console[_0x14d971(0xce)]('['+new Date()['toISOString']()+']\x20Start\x20session\x20response:',_0xc1628e),_0xc1628e;}async function pingNode(_0x624272,_0x3c7813,_0x148831,_0xd84159,_0x3fce06){const _0x337dd1=_0x40d544,_0x7eb3f0=await loadFetch(),_0x1f2b88=await import(_0x337dd1(0xfd)),_0x45058d=apiBaseUrl+_0x337dd1(0xc3)+_0x624272+_0x337dd1(0xf2),_0x266e7c=_0x3c7813?JSON[_0x337dd1(0xef)](_0x3c7813[_0x337dd1(0xe9)]):_0x337dd1(0xde);console['log']('['+new Date()[_0x337dd1(0xee)]()+_0x337dd1(0xc0)+_0x624272+'\x20using\x20proxy\x20'+_0x266e7c);const _0x2741d5=await _0x7eb3f0(_0x45058d,{'method':_0x337dd1(0xc2),'headers':{'Authorization':_0x337dd1(0xc8)+_0xd84159},'agent':_0x3c7813});let _0x5bf463;try{_0x5bf463=await _0x2741d5['json']();}catch(_0xf0206f){const _0x2bf5c7=await _0x2741d5[_0x337dd1(0xcf)]();console[_0x337dd1(0xf8)]('['+new Date()[_0x337dd1(0xee)]()+_0x337dd1(0xcb),_0x2bf5c7),_0x3fce06[_0x624272]=(_0x3fce06[_0x624272]||0x0)+0x1;throw new Error(_0x337dd1(0xeb)+_0x2bf5c7);}if(!_0x5bf463[_0x337dd1(0xc7)])console['log']('['+new Date()[_0x337dd1(0xee)]()+']\x20'+_0x1f2b88['default']['green']('First\x20time\x20ping\x20initiate')+_0x337dd1(0x10c)+_0x1f2b88[_0x337dd1(0xe1)]['cyan'](_0x624272)+_0x337dd1(0xd2)+_0x1f2b88['default'][_0x337dd1(0xe8)](_0x266e7c)+',\x20IP:\x20'+_0x1f2b88[_0x337dd1(0xe1)][_0x337dd1(0xe8)](_0x148831));else{let _0x4cde0c=_0x5bf463[_0x337dd1(0xc7)]['toLowerCase']()==='ok'?_0x1f2b88[_0x337dd1(0xe1)][_0x337dd1(0xd6)]:_0x1f2b88['default'][_0x337dd1(0xdb)];const _0x476a31='['+new Date()['toISOString']()+_0x337dd1(0x10a)+_0x4cde0c(_0x5bf463[_0x337dd1(0xc7)][_0x337dd1(0xf5)]())+_0x337dd1(0x10c)+_0x1f2b88[_0x337dd1(0xe1)][_0x337dd1(0xf4)](_0x624272)+_0x337dd1(0xd2)+_0x1f2b88[_0x337dd1(0xe1)][_0x337dd1(0xe8)](_0x266e7c)+_0x337dd1(0x102)+_0x1f2b88['default'][_0x337dd1(0xe8)](_0x148831);console[_0x337dd1(0xce)](_0x476a31);}return _0x3fce06[_0x624272]=0x0,_0x5bf463;}function _0x530f(){const _0x3884c3=['|\x20\x20\x20\x20\x20\x20\x20\x20\x20AUTHOR\x20:\x20NOFAN\x20RAMBE\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20|','106064eKBhNA','close','node-fetch','createInterface','set','1356fgWNvs',']\x20Ping\x20response\x20status:\x20','readline',',\x20NodeID:\x20','hardwareId',']\x20Ping\x20failed\x20','862946izVQIK','.\x20Restarting\x20process...','add',']\x20Node\x20','promises',']\x20Pinging\x20node\x20','message','POST','/nodes/','642FJbOvL',']\x20Error\x20during\x20ping:\x20','json','status','Bearer\x20',']\x20Sending\x20initial\x20ping\x20for\x20nodeId:\x20','has',']\x20Failed\x20to\x20parse\x20JSON.\x20Response\x20text:',']\x20Processing\x20nodeId:\x20',']\x20IP\x20fetch\x20response:','log','text','application/json',']\x20Uncaught\x20exception:\x20',',\x20Proxy:\x20','Do\x20you\x20want\x20to\x20use\x20a\x20proxy?\x20(y/n):\x20','https://tight-block-2413.txlabs.workers.dev','382434OxEyaz','green',']\x20Node\x20registration\x20completed\x20for\x20nodeId:\x20','|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20BLESS\x20NETWORK\x20BOT\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20|','232tQvfYc',']\x20An\x20error\x20occurred:\x20','red','/start-session','\x20============================================','No\x20proxy','usertoken','252RZYxzD','default','2456lXqadC',']\x20Session\x20started\x20for\x20nodeId:\x20',',\x20hardwareId:\x20','question',']\x20Registering\x20node\x20with\x20IP:\x20','./config','yellow','proxy','|\x20\x20\x20\x20\x20\x20\x20\x20\x20WELCOME\x20&\x20ENJOY\x20SIR!\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20|','Invalid\x20JSON\x20response:\x20','nodeId','delete','toISOString','stringify','9756780kEipdy','get','/ping','.\x20Response:','cyan','toUpperCase','stdin','uncaughtException','error',']\x20Starting\x20session\x20for\x20node\x20',',\x20restarting\x20process\x20in\x2050\x20seconds:\x20','357270SLomVC','then','chalk','7120lSHnXI',']\x20Sending\x20ping\x20for\x20nodeId:\x20','toLowerCase',']\x20Registration\x20response:',',\x20IP:\x20'];_0x530f=function(){return _0x3884c3;};return _0x530f();}async function displayHeader(){const _0x13ef00=_0x40d544,_0x3aa043=await import(_0x13ef00(0xfd));console[_0x13ef00(0xce)](''),console[_0x13ef00(0xce)](_0x3aa043[_0x13ef00(0xe1)]['yellow'](_0x13ef00(0xdd))),console[_0x13ef00(0xce)](_0x3aa043[_0x13ef00(0xe1)][_0x13ef00(0xe8)](_0x13ef00(0xd8))),console[_0x13ef00(0xce)](_0x3aa043[_0x13ef00(0xe1)][_0x13ef00(0xe8)](_0x13ef00(0x103))),console[_0x13ef00(0xce)](_0x3aa043[_0x13ef00(0xe1)]['yellow'](_0x13ef00(0xea))),console[_0x13ef00(0xce)](_0x3aa043[_0x13ef00(0xe1)][_0x13ef00(0xe8)](_0x13ef00(0xdd))),console[_0x13ef00(0xce)]('');}const activeNodes=new Set(),nodeIntervals=new Map();async function processNode(_0x3b80d5,_0x571dbf,_0x55c975,_0x4a90fc){const _0x155232=_0x40d544,_0x1d406b={};let _0x437328=null;while(!![]){try{if(activeNodes[_0x155232(0xca)](_0x3b80d5[_0x155232(0xec)])){console[_0x155232(0xce)]('['+new Date()[_0x155232(0xee)]()+_0x155232(0x112)+_0x3b80d5[_0x155232(0xec)]+'\x20is\x20already\x20being\x20processed.');return;}activeNodes[_0x155232(0x111)](_0x3b80d5[_0x155232(0xec)]),console[_0x155232(0xce)]('['+new Date()[_0x155232(0xee)]()+_0x155232(0xcc)+_0x3b80d5['nodeId']+_0x155232(0xe4)+_0x3b80d5[_0x155232(0x10d)]+_0x155232(0x102)+_0x55c975);const _0x4c7781=await registerNode(_0x3b80d5[_0x155232(0xec)],_0x3b80d5[_0x155232(0x10d)],_0x55c975,_0x571dbf,_0x4a90fc);console['log']('['+new Date()['toISOString']()+_0x155232(0xd7)+_0x3b80d5['nodeId']+_0x155232(0xf3),_0x4c7781);const _0x169dae=await startSession(_0x3b80d5[_0x155232(0xec)],_0x571dbf,_0x4a90fc);console[_0x155232(0xce)]('['+new Date()[_0x155232(0xee)]()+_0x155232(0xe3)+_0x3b80d5[_0x155232(0xec)]+_0x155232(0xf3),_0x169dae),console[_0x155232(0xce)]('['+new Date()[_0x155232(0xee)]()+_0x155232(0xc9)+_0x3b80d5[_0x155232(0xec)]),await pingNode(_0x3b80d5[_0x155232(0xec)],_0x571dbf,_0x55c975,_0x4a90fc,_0x1d406b);!nodeIntervals[_0x155232(0xca)](_0x3b80d5[_0x155232(0xec)])&&(_0x437328=setInterval(async()=>{const _0x431147=_0x155232;try{console[_0x431147(0xce)]('['+new Date()[_0x431147(0xee)]()+_0x431147(0xff)+_0x3b80d5['nodeId']),await pingNode(_0x3b80d5['nodeId'],_0x571dbf,_0x55c975,_0x4a90fc,_0x1d406b);}catch(_0x536896){console[_0x431147(0xf8)]('['+new Date()[_0x431147(0xee)]()+_0x431147(0xc5)+_0x536896[_0x431147(0xc1)]),_0x1d406b[_0x3b80d5[_0x431147(0xec)]]=(_0x1d406b[_0x3b80d5[_0x431147(0xec)]]||0x0)+0x1;_0x1d406b[_0x3b80d5[_0x431147(0xec)]]>=MAX_PING_ERRORS&&(clearInterval(nodeIntervals[_0x431147(0xf1)](_0x3b80d5[_0x431147(0xec)])),nodeIntervals[_0x431147(0xed)](_0x3b80d5[_0x431147(0xec)]),activeNodes[_0x431147(0xed)](_0x3b80d5['nodeId']),console['error']('['+new Date()[_0x431147(0xee)]()+_0x431147(0x10e)+MAX_PING_ERRORS+'\x20times\x20consecutively\x20for\x20nodeId:\x20'+_0x3b80d5[_0x431147(0xec)]+_0x431147(0x110)),await new Promise(_0x414bae=>setTimeout(_0x414bae,processRestartDelay)),await processNode(_0x3b80d5,_0x571dbf,_0x55c975,_0x4a90fc));throw _0x536896;}},pingInterval),nodeIntervals[_0x155232(0x108)](_0x3b80d5[_0x155232(0xec)],_0x437328));break;}catch(_0x5595fc){console['error']('['+new Date()[_0x155232(0xee)]()+']\x20Error\x20occurred\x20for\x20nodeId:\x20'+_0x3b80d5[_0x155232(0xec)]+_0x155232(0xfa)+_0x5595fc[_0x155232(0xc1)]),await new Promise(_0x116f36=>setTimeout(_0x116f36,restartDelay));}finally{activeNodes[_0x155232(0xed)](_0x3b80d5[_0x155232(0xec)]);}}}async function runAll(_0x59e055=!![]){const _0xcaf57=_0x40d544;try{_0x59e055&&(await displayHeader(),useProxy=await promptUseProxy());for(const _0x3f1bc6 of config){for(const _0x5e3b12 of _0x3f1bc6['nodes']){const _0x1f3e17=useProxy?new HttpsProxyAgent(_0x5e3b12[_0xcaf57(0xe9)]):null,_0x2b02b5=useProxy?await fetchIpAddress(await loadFetch(),_0x1f3e17):null;processNode(_0x5e3b12,_0x1f3e17,_0x2b02b5,_0x3f1bc6[_0xcaf57(0xdf)]);}}}catch(_0xb00c9e){const _0x12cbf6=await import(_0xcaf57(0xfd));console['error'](_0x12cbf6['default']['yellow']('['+new Date()[_0xcaf57(0xee)]()+_0xcaf57(0xda)+_0xb00c9e[_0xcaf57(0xc1)]));}}process['on'](_0x40d544(0xf7),_0x56fdd5=>{const _0xfeb8ce=_0x40d544;console[_0xfeb8ce(0xf8)]('['+new Date()[_0xfeb8ce(0xee)]()+_0xfeb8ce(0xd1)+_0x56fdd5['message']),runAll(![]);}),runAll();
+const {
+  HttpsProxyAgent
+} = require('https-proxy-agent');
+const readline = require("readline");
+const config = require("../config/config.js");
+let useProxy;
+async function loadFetch() {
+  const _0x1902e5 = await import("node-fetch").then(_0x2697fc => _0x2697fc['default']);
+  return _0x1902e5;
+}
+async function promptUseProxy() {
+  const _0x163924 = readline.createInterface({
+    'input': process.stdin,
+    'output': process.stdout
+  });
+  return new Promise(_0x3f7683 => {
+    _0x163924.question("Do you want to use a proxy? (y/n): ", _0x3e423d => {
+      _0x163924.close();
+      _0x3f7683(_0x3e423d.toLowerCase() === 'y');
+    });
+  });
+}
+async function fetchIpAddress(_0x34f836, _0x2ab0cb) {
+  const _0x357e83 = await _0x34f836("https://tight-block-2413.txlabs.workers.dev", {
+    'agent': _0x2ab0cb
+  });
+  const _0x1992f7 = await _0x357e83.json();
+  console.log('[' + new Date().toISOString() + "] IP fetch response:", _0x1992f7);
+  return _0x1992f7.ip;
+}
+async function registerNode(_0x57691c, _0x49541d, _0x5c0720, _0x5a6905, _0x20b1eb) {
+  const _0x33ecfe = await loadFetch();
+  const _0x44b729 = "https://gateway-run.bls.dev/api/v1/nodes/" + _0x57691c;
+  console.log('[' + new Date().toISOString() + "] Registering node with IP: " + _0x5c0720 + ", Hardware ID: " + _0x49541d);
+  const _0x48d373 = await _0x33ecfe(_0x44b729, {
+    'method': 'POST',
+    'headers': {
+      'Content-Type': "application/json",
+      'Authorization': "Bearer " + _0x20b1eb
+    },
+    'body': JSON.stringify({
+      'ipAddress': _0x5c0720,
+      'hardwareId': _0x49541d
+    }),
+    'agent': _0x5a6905
+  });
+  let _0x3a42e9;
+  try {
+    _0x3a42e9 = await _0x48d373.json();
+  } catch (_0x4e75bb) {
+    const _0x3a19a0 = await _0x48d373.text();
+    console.error('[' + new Date().toISOString() + "] Failed to parse JSON. Response text:", _0x3a19a0);
+    throw new Error("Invalid JSON response: " + _0x3a19a0);
+  }
+  console.log('[' + new Date().toISOString() + "] Registration response:", _0x3a42e9);
+  return _0x3a42e9;
+}
+async function startSession(_0x42f632, _0xc32504, _0x28f99c) {
+  const _0x2d551e = await loadFetch();
+  const _0x5c9c58 = "https://gateway-run.bls.dev/api/v1/nodes/" + _0x42f632 + "/start-session";
+  console.log('[' + new Date().toISOString() + "] Starting session for node " + _0x42f632 + ", it might take a while...");
+  const _0x10e8db = await _0x2d551e(_0x5c9c58, {
+    'method': 'POST',
+    'headers': {
+      'Authorization': "Bearer " + _0x28f99c
+    },
+    'agent': _0xc32504
+  });
+  let _0xc1628e;
+  try {
+    _0xc1628e = await _0x10e8db.json();
+  } catch (_0xc0c78f) {
+    const _0x4407bc = await _0x10e8db.text();
+    console.error('[' + new Date().toISOString() + "] Failed to parse JSON. Response text:", _0x4407bc);
+    throw new Error("Invalid JSON response: " + _0x4407bc);
+  }
+  console.log('[' + new Date().toISOString() + "] Start session response:", _0xc1628e);
+  return _0xc1628e;
+}
+async function pingNode(_0x624272, _0x3c7813, _0x148831, _0xd84159, _0x3fce06) {
+  const _0x7eb3f0 = await loadFetch();
+  const _0x1f2b88 = await import("chalk");
+  const _0x45058d = "https://gateway-run.bls.dev/api/v1/nodes/" + _0x624272 + "/ping";
+  const _0x266e7c = _0x3c7813 ? JSON.stringify(_0x3c7813.proxy) : "No proxy";
+  console.log('[' + new Date().toISOString() + "] Pinging node " + _0x624272 + " using proxy " + _0x266e7c);
+  const _0x2741d5 = await _0x7eb3f0(_0x45058d, {
+    'method': "POST",
+    'headers': {
+      'Authorization': "Bearer " + _0xd84159
+    },
+    'agent': _0x3c7813
+  });
+  let _0x5bf463;
+  try {
+    _0x5bf463 = await _0x2741d5.json();
+  } catch (_0xf0206f) {
+    const _0x2bf5c7 = await _0x2741d5.text();
+    console.error('[' + new Date().toISOString() + "] Failed to parse JSON. Response text:", _0x2bf5c7);
+    _0x3fce06[_0x624272] = (_0x3fce06[_0x624272] || 0x0) + 0x1;
+    throw new Error("Invalid JSON response: " + _0x2bf5c7);
+  }
+  if (!_0x5bf463.status) {
+    console.log('[' + new Date().toISOString() + "] " + _0x1f2b88['default'].green("First time ping initiate") + ", NodeID: " + _0x1f2b88["default"].cyan(_0x624272) + ", Proxy: " + _0x1f2b88['default'].yellow(_0x266e7c) + ", IP: " + _0x1f2b88["default"].yellow(_0x148831));
+  } else {
+    let _0x4cde0c = _0x5bf463.status.toLowerCase() === 'ok' ? _0x1f2b88["default"].green : _0x1f2b88['default'].red;
+    const _0x476a31 = '[' + new Date().toISOString() + "] Ping response status: " + _0x4cde0c(_0x5bf463.status.toUpperCase()) + ", NodeID: " + _0x1f2b88["default"].cyan(_0x624272) + ", Proxy: " + _0x1f2b88["default"].yellow(_0x266e7c) + ", IP: " + _0x1f2b88['default'].yellow(_0x148831);
+    console.log(_0x476a31);
+  }
+  _0x3fce06[_0x624272] = 0x0;
+  return _0x5bf463;
+}
+async function displayHeader() {
+  const _0x3aa043 = await import("chalk");
+  console.log('');
+  console.log(_0x3aa043["default"].yellow(" ============================================"));
+  console.log(_0x3aa043["default"].yellow("|          BLESS NETWORK BOT                 |"));
+  console.log(_0x3aa043["default"].yellow("|         AUTHOR : NOFAN RAMBE               |"));
+  console.log(_0x3aa043["default"].yellow("|         WELCOME & ENJOY SIR!               |"));
+  console.log(_0x3aa043["default"].yellow(" ============================================"));
+  console.log('');
+}
+const activeNodes = new Set();
+const nodeIntervals = new Map();
+async function processNode(_0x3b80d5, _0x571dbf, _0x55c975, _0x4a90fc) {
+  const _0x1d406b = {};
+  let _0x437328 = null;
+  while (true) {
+    try {
+      if (activeNodes.has(_0x3b80d5.nodeId)) {
+        console.log('[' + new Date().toISOString() + "] Node " + _0x3b80d5.nodeId + " is already being processed.");
+        return;
+      }
+      activeNodes.add(_0x3b80d5.nodeId);
+      console.log('[' + new Date().toISOString() + "] Processing nodeId: " + _0x3b80d5.nodeId + ", hardwareId: " + _0x3b80d5.hardwareId + ", IP: " + _0x55c975);
+      const _0x4c7781 = await registerNode(_0x3b80d5.nodeId, _0x3b80d5.hardwareId, _0x55c975, _0x571dbf, _0x4a90fc);
+      console.log('[' + new Date().toISOString() + "] Node registration completed for nodeId: " + _0x3b80d5.nodeId + ". Response:", _0x4c7781);
+      const _0x169dae = await startSession(_0x3b80d5.nodeId, _0x571dbf, _0x4a90fc);
+      console.log('[' + new Date().toISOString() + "] Session started for nodeId: " + _0x3b80d5.nodeId + ". Response:", _0x169dae);
+      console.log('[' + new Date().toISOString() + "] Sending initial ping for nodeId: " + _0x3b80d5.nodeId);
+      await pingNode(_0x3b80d5.nodeId, _0x571dbf, _0x55c975, _0x4a90fc, _0x1d406b);
+      if (!nodeIntervals.has(_0x3b80d5.nodeId)) {
+        _0x437328 = setInterval(async () => {
+          try {
+            console.log('[' + new Date().toISOString() + "] Sending ping for nodeId: " + _0x3b80d5.nodeId);
+            await pingNode(_0x3b80d5.nodeId, _0x571dbf, _0x55c975, _0x4a90fc, _0x1d406b);
+          } catch (_0x536896) {
+            console.error('[' + new Date().toISOString() + "] Error during ping: " + _0x536896.message);
+            _0x1d406b[_0x3b80d5.nodeId] = (_0x1d406b[_0x3b80d5.nodeId] || 0x0) + 0x1;
+            if (_0x1d406b[_0x3b80d5.nodeId] >= 0x3) {
+              clearInterval(nodeIntervals.get(_0x3b80d5.nodeId));
+              nodeIntervals["delete"](_0x3b80d5.nodeId);
+              activeNodes["delete"](_0x3b80d5.nodeId);
+              console.error('[' + new Date().toISOString() + "] Ping failed " + 0x3 + " times consecutively for nodeId: " + _0x3b80d5.nodeId + ". Restarting process...");
+              await new Promise(_0x414bae => setTimeout(_0x414bae, 0x7530));
+              await processNode(_0x3b80d5, _0x571dbf, _0x55c975, _0x4a90fc);
+            }
+            throw _0x536896;
+          }
+        }, 0x1d4c0);
+        nodeIntervals.set(_0x3b80d5.nodeId, _0x437328);
+      }
+      break;
+    } catch (_0x5595fc) {
+      console.error('[' + new Date().toISOString() + "] Error occurred for nodeId: " + _0x3b80d5.nodeId + ", restarting process in 50 seconds: " + _0x5595fc.message);
+      await new Promise(_0x116f36 => setTimeout(_0x116f36, 0x3a980));
+    } finally {
+      activeNodes["delete"](_0x3b80d5.nodeId);
+    }
+  }
+}
+async function runAll(_0x59e055 = true) {
+  try {
+    if (_0x59e055) {
+      await displayHeader();
+      useProxy = await promptUseProxy();
+    }
+    for (const _0x3f1bc6 of config) {
+      for (const _0x5e3b12 of _0x3f1bc6.nodes) {
+        const _0x1f3e17 = useProxy ? new HttpsProxyAgent(_0x5e3b12.proxy) : null;
+        const _0x2b02b5 = useProxy ? await fetchIpAddress(await loadFetch(), _0x1f3e17) : null;
+        processNode(_0x5e3b12, _0x1f3e17, _0x2b02b5, _0x3f1bc6.usertoken);
+      }
+    }
+  } catch (_0xb00c9e) {
+    const _0x12cbf6 = await import("chalk");
+    console.error(_0x12cbf6['default'].yellow('[' + new Date().toISOString() + "] An error occurred: " + _0xb00c9e.message));
+  }
+}
+process.on("uncaughtException", _0x56fdd5 => {
+  console.error('[' + new Date().toISOString() + "] Uncaught exception: " + _0x56fdd5.message);
+  runAll(false);
+});
+runAll();
